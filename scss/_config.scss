@@ -1,0 +1,101 @@
+// Colors
+
+$white: #FFFFFF;
+$white-grey: #F1F3F6;
+$light-grey: #CDCECE;
+$light-white-grey: #F9FBFC;
+$dark-grey: #6C7174;
+$black: #000000;
+$black-shade1:#242424;
+$black-shade2: #141414;
+$grey-shade: #393939;
+$footer-grey: #464646;
+$capital-red: #C7222A;
+$protecting-shade-light: #DA9089;
+$protecting-shade-dark: #6A4742;
+
+// Fonts
+$pfBold: "pf_handbook_probold";
+$pfMedium: "pf_handbook_promedium";
+$pfRegular: "pf_handbook_proregular";
+
+// Media Breakpoint
+$lg: 1400px;
+$md: 1200px;
+$sm: 1020px;
+$xs: 767px;
+$xxs: 576px;
+
+// Set box shadow
+@mixin set-box-shadow($shadow){
+    -webkit-box-shadow: $shadow;
+    -moz-box-shadow: $shadow;
+    box-shadow: $shadow;
+}
+
+// Arrows
+@mixin arrow-style {
+    border: solid $white;
+    border-width: 0 2px 2px 0;
+    display: inline-block;
+    padding: 4px;    
+}
+@mixin getTransform($transformValue) {
+    -webkit-transform: $transformValue;
+    -moz-transform: $transformValue;
+    -o-transform: $transformValue;
+    -ms-transform: $transformValue;
+    transform: $transformValue;
+}
+@mixin getRightArrow() {
+  @include arrow-style;
+  @include getTransform(rotate(-45deg));
+}
+.arrow-right {
+    @include getRightArrow();
+}
+
+@mixin mQ($args...) {
+    @if length($args) == 1 {
+      @media screen and (max-width: nth($args, 1)) {
+        @content;
+      }
+    }
+    @if length($args) == 2 {
+      @media screen and (max-width: nth($args, 1)) and (min-width: nth($args, 2)) {
+        @content;
+      }
+    }
+}
+
+// Large devices
+@mixin for-lg-desktop {
+    @media (max-width: $lg) {
+      @content;
+    }
+  }
+  // Medium devices
+  @mixin for-md-desktop {
+    @media (max-width: $md) {
+      @content;
+    }
+  }
+  // Small devices
+  @mixin for-tablet {
+    @media (max-width: $sm) {
+      @content;
+    }
+  }
+  // Small devices
+  @mixin for-phone {
+    @media (max-width: $xs) {
+      @content;
+    }
+  }
+  // For Small device ( below 576px)
+  @mixin for-small-phone {
+    @media (max-width: $xxs) {
+      @content;
+    }
+  }
+

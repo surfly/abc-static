@@ -1,0 +1,18 @@
+.abc-primary-btn{
+    background: $capital-red;
+    border: 1px solid $capital-red;
+    color: $white;
+    font-size: 2rem;
+    padding: .6rem 1.6rem;
+    @include set-box-shadow(0px 3px 6px rgba($color: $capital-red, $alpha: 0.2));    
+    &.mt{
+        margin-top: 1.4rem;
+    }
+    .btn-arr{
+        margin-left: 3rem;
+    }
+    &:hover{
+        color: $white;
+    }    
+}
+
